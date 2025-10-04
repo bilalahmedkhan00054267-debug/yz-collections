@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Order — YZ Collectionz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#d1495b;
+      --dark:#222;
+      --muted:#6b7280;
+      --white:#ffffff;
+      --page-bg:#f3f4f6;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--page-bg);color:var(--dark);-webkit-font-smoothing:antialiased}
+    .container{max-width:700px;margin:30px auto;padding:20px}
+    .logo{font-family:'Playfair Display', serif;font-size:28px;font-weight:700;margin-bottom:6px}
+    .card{background:var(--white);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(16,24,40,0.06)}
+    label{display:block;font-size:14px;margin-top:12px;color:var(--muted)}
+    input[type="text"], textarea, select{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6e6e6;font-size:15px}
+    .row{display:flex;gap:10px}
+    .half{flex:1}
+    .btn{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;border:none;cursor:pointer}
+    .small{font-size:13px;color:var(--muted)}
+    .thank{background:#ecfdf5;border:1px solid #bbf7d0;color:#065f46;padding:12px;border-radius:8px;margin-top:12px;display:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">YZ Collectionz</div>
+    <div class="card">
+      <h2>Place Your Order</h2>
+      <p class="small">Fill the form below. After submit, WhatsApp will open with your order details.</p>
+
+      <form id="orderForm">
+        <label>Full Name
+          <input type="text" id="name" placeholder="Your full name" required>
+        </label>
+
+        <div class="row">
+          <div class="half">
+            <label>Phone Number
+              <input type="text" id="phone" placeholder="e.g. 03001234567" required>
+            </label>
+          </div>
+          <div class="half">
+            <label>Size
+              <select id="size">
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <label>Address
+          <textarea id="address" rows="3" placeholder="Full delivery address" required></textarea>
+        </label>
+
+        <label>Product
+          <input type="text" id="product" readonly>
+        </label>
+
+        <label>Additional Notes (optional)
+          <textarea id="notes" rows="2" placeholder="Any color/measurement requests"></textarea>
+        </label>
+
+        <button type="submit" class="btn">Submit Order</button>
+
+        <div id="thank" class="thank">Thank you! Your order is being prepared — WhatsApp will open now. We will contact you shortly.</div>
+      </form>
+
+      <p class="small" style="margin-top:10px">Payment: <strong>Cash on Delivery</strong> (TCS / Leopard). WhatsApp Support: +92 314 104495</p>
+    </div>
+
+    <p style="text-align:center;margin-top:12px;color:var(--muted)">© <span id="year"></span> YZ Collectionz</p>
+  </div>
+
+  <script>
+    // Configuration
+    const WHATSAPP_NUMBER = "92314104495"; // no + sign
+    // Get product from query param
+    function getQueryParam(name){
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name) || '';
+    }
+    document.getElementById('product').value = decodeURIComponent(getQueryParam('product')) || '3D Printed Lawn Suit';
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('orderForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const product = document.getElementById('product').value.trim();
+      const size = document.getElementById('size').value;
+      const notes = document.getElementById('notes').value.trim();
+
+      if(!name || !phone || !address){
+        alert('Please fill Name, Phone and Address.');
+        return;
+      }
+
+      const message = `New order from YZ Collectionz%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}%0AProduct: ${encodeURIComponent(product)}%0ASize: ${encodeURIComponent(size)}%0ANotes: ${encodeURIComponent(notes)}`;
+
+      // Show thank you then open WhatsApp
+      const thankDom = document.getElementById('thank');
+      thankDom.style.display = 'block';
+
+      // open WhatsApp in new tab
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+      window.open(waUrl, '_blank');
+
+      // Optionally clear form or disable submit
+      document.querySelector('button[type="submit"]').disabled = true;
+    });
+  </script>
+</body>
+</html>

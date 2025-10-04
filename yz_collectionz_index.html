@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YZ Collectionz — 3D Printed Lawn Suits</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#d1495b;
+      --dark:#222;
+      --muted:#6b7280;
+      --white:#ffffff;
+      --page-bg:#f3f4f6;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--page-bg);color:var(--dark);-webkit-font-smoothing:antialiased}
+    .container{max-width:1000px;margin:30px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px;padding:12px 0}
+    .logo{
+      font-family: 'Playfair Display', serif;
+      font-size:34px;color:var(--dark);font-weight:700;
+      letter-spacing:1px;
+    }
+    .lead{color:var(--muted);margin-top:4px;font-size:14px}
+    nav{margin-left:auto}
+    .btn{
+      padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;
+    }
+    .hero{
+      display:flex;gap:20px;align-items:center;background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.6));
+      padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.06);
+    }
+    .hero .text{flex:1}
+    .hero h2{margin:0;font-family:'Playfair Display', serif;font-size:26px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:22px}
+    .card{background:var(--white);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    .placeholder{
+      width:100%;height:260px;background:linear-gradient(90deg,#ececec,#f7f7f7);display:flex;align-items:center;justify-content:center;border-radius:8px;color:var(--muted)
+    }
+    .card h3{margin:10px 0 6px;font-size:18px;font-weight:600}
+    .price{font-weight:700;color:var(--dark)}
+    .order-row{display:flex;gap:10px;align-items:center;margin-top:10px}
+    footer{margin-top:28px;padding:18px;background:var(--white);border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.03)}
+    .two{display:flex;gap:20px;flex-wrap:wrap}
+    .info{flex:1;min-width:220px}
+    .muted{color:var(--muted);font-size:14px}
+    .small{font-size:13px;color:var(--muted)}
+    @media(max-width:720px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .placeholder{height:200px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <div class="logo">YZ Collectionz</div>
+        <div class="lead">3D Printed Lawn Suits — Modern prints, breathable lawn fabric</div>
+      </div>
+      <nav>
+        <a class="btn" href="yz_collectionz_order.html">Order Now</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="text">
+        <h2>New Arrival: 3D Printed Lawn Collection</h2>
+        <p class="small">Fresh prints, vibrant colors — Cash on Delivery available across Pakistan. WhatsApp: +92 314 104495</p>
+      </div>
+      <div>
+        <div style="background:var(--white);padding:12px;border-radius:8px;box-shadow:0 6px 18px rgba(16,24,40,0.04);text-align:center">
+          <div style="font-weight:700;color:var(--accent)">Free delivery</div>
+          <div class="small">On orders above Rs. 3000</div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h3 style="margin-top:20px">Our Picks</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="placeholder">Image placeholder — upload your photo later</div>
+          <h3>3D Printed Lawn Suit — Summer Bloom</h3>
+          <div class="small">Lightweight & breathable • Sizes S-3XL</div>
+          <div class="order-row">
+            <div class="price">Rs. 2,500</div>
+            <a class="btn" href="yz_collectionz_order.html?product=Summer%20Bloom">Order</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="placeholder">Image placeholder — upload your photo later</div>
+          <h3>3D Printed Lawn Suit — Ocean Mirage</h3>
+          <div class="small">Vibrant 3D print • Limited stock</div>
+          <div class="order-row">
+            <div class="price">Rs. 2,800</div>
+            <a class="btn" href="yz_collectionz_order.html?product=Ocean%20Mirage">Order</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="placeholder">Image placeholder — upload your photo later</div>
+          <h3>3D Printed Lawn Suit — Desert Garden</h3>
+          <div class="small">Elegant prints • Perfect for daytime</div>
+          <div class="order-row">
+            <div class="price">Rs. 2,600</div>
+            <a class="btn" href="yz_collectionz_order.html?product=Desert%20Garden">Order</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="two">
+        <div class="info">
+          <h4>Delivery Info</h4>
+          <p class="muted">We deliver across Pakistan via TCS / Leopard Courier. Delivery time: 2–6 working days. <br><strong>Delivery charges:</strong> Rs. 250 (Nationwide). Cash on Delivery available.</p>
+        </div>
+        <div class="info">
+          <h4>Contact</h4>
+          <p class="muted"><strong>WhatsApp:</strong> +92 314 104495<br><strong>Address:</strong> (Will be added soon)</p>
+        </div>
+        <div class="info">
+          <h4>About Us</h4>
+          <p class="muted">YZ Collectionz offers trendy 3D printed lawn suits with focus on print quality and comfort. Photos will be uploaded soon.</p>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:12px;font-size:13px;color:var(--muted)">© <span id="year"></span> YZ Collectionz</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
